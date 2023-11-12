@@ -26,7 +26,7 @@ public struct PickerTheme{
     let titleFont:UIFont = UIFont.systemFont(ofSize: 26, weight: .bold)
     let countFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
     let subTitleFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    let searchFont:UIFont = UIFont.systemFont(ofSize: 17, weight: .regular)
+    let searchFont:UIFont = UIFont.systemFont(ofSize: 14, weight: .regular)
     let sectionFont:UIFont = UIFont.systemFont(ofSize: 13, weight: .bold)
     let tintColor:UIColor = .orange
 }
@@ -210,7 +210,7 @@ public class PickContactsViewController: UIViewController {
     
     @objc private func done(){
         if selectedContacts.isEmpty {
-            //display error message
+            ToastBanner.shared.show(message: "you have to select at least one contact.", style: .info, position: .Bottom)
         }else{
             callback?(selectedContacts)
             self.dismiss(animated: true)
@@ -412,18 +412,18 @@ extension PickContactsViewController:UITableViewDelegate , UITableViewDataSource
         self.view.endEditing(true)
         if !contact.hasValidNumber(for: country) {
             if pickerType == .list {
-               // Toast.shared.show(message: "\("Unable to add".appLocalized) \(contact.name ?? "") \("to the group due to wrong mobile number".appLocalized)" , boldPart: contact.name ?? "")
+                ToastBanner.shared.show(message: "Unable to select \(contact.name ?? "") due to wrong mobile number", style: .info, position: .Bottom)
             }else{
-                //Toast.shared.show(message: "\("Unable to add".appLocalized) \(contact.name ?? "") \("due to wrong mobile number".appLocalized)" , boldPart: contact.name ?? "")
+                ToastBanner.shared.show(message: "Unable to select \(contact.name ?? "") due to wrong mobile number", style: .info, position: .Bottom)
             }
             return
         }
         if pickerType == .list {
             if contact.isSelected  {
-               // Toast.shared.show(message: "contact_selected".appLocalized)
+                ToastBanner.shared.show(message: "Contact already selected", style: .info, position: .Bottom)
             }else{
                 if self.selectedContacts.count >= totalSelection {
-                    //Toast.shared.show(message: "exceed_contacts_count".appLocalized)
+                    ToastBanner.shared.show(message: "You have reached maximum allowd contacts", style: .info, position: .Bottom)
                     return
                 }
                 if self.selectedContacts.firstIndex(of: contact) == nil {
@@ -433,7 +433,7 @@ extension PickContactsViewController:UITableViewDelegate , UITableViewDataSource
                         tableView.reloadRows(at: [indexPath], with: .automatic)
                     }
                 }else{
-                    //Toast.shared.show(message: "contact_selected".appLocalized)
+                    ToastBanner.shared.show(message: "Contact already selected", style: .info, position: .Bottom)
                 }
                 self.hideShowSelectedContactsList()
             }
