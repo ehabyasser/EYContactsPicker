@@ -22,13 +22,13 @@ public enum ContactCountry{
 
 
 public struct PickerTheme{
-    let doneBtnFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .bold)
-    let titleFont:UIFont = UIFont.systemFont(ofSize: 26, weight: .bold)
-    let countFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    let subTitleFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    let searchFont:UIFont = UIFont.systemFont(ofSize: 14, weight: .regular)
-    let sectionFont:UIFont = UIFont.systemFont(ofSize: 13, weight: .bold)
-    let tintColor:UIColor = .orange
+    public let doneBtnFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .bold)
+    public let titleFont:UIFont = UIFont.systemFont(ofSize: 26, weight: .bold)
+    public let countFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    public let subTitleFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    public let searchFont:UIFont = UIFont.systemFont(ofSize: 14, weight: .regular)
+    public let sectionFont:UIFont = UIFont.systemFont(ofSize: 13, weight: .bold)
+    public let tintColor:UIColor = .orange
 }
 
 @available(iOS 13.0, *)
