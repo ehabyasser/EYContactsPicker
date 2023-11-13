@@ -23,7 +23,7 @@ class SelectedContactCell: UICollectionViewCell {
     private lazy var contactNameLbl:UILabel = {
         let lbl = UILabel()
         lbl.textAlignment = .center
-        lbl.textColor = .black
+        lbl.textColor = .label
         lbl.font = contactNameFont
         return lbl
     }()
@@ -32,11 +32,11 @@ class SelectedContactCell: UICollectionViewCell {
     private let deleteBtn:UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
-        btn.tintColor = .darkGray
+        btn.tintColor = .label
         btn.layer.cornerRadius = 11
-        btn.layer.borderColor = UIColor.white.cgColor
+        btn.layer.borderColor = UIColor.secondaryLabel.cgColor
         btn.layer.borderWidth = 1
-        btn.backgroundColor = .white
+        btn.backgroundColor = .systemBackground
         return btn
     }()
     
