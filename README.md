@@ -17,7 +17,7 @@ pod 'EYContactsPicker'
 ```
 Or specify desired version
 ```
-pod 'EYContactsPicker', '~> 0.3'
+pod 'EYContactsPicker', '~> 1.0.0'
 ```
 
 
