@@ -29,20 +29,24 @@ class ContactCell: UITableViewCell {
     }
     var contactNameFont = UIFont.systemFont(ofSize: 16, weight: .bold)
     var contactNumFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    var pickerTintColor: UIColor = .orange
+    var pickerTintColor: UIColor = .orange {
+        didSet{
+            self.radioBtn.tintColor = pickerTintColor
+        }
+    }
     
     private lazy var contactNameLbl:UILabel = {
         let lbl = UILabel()
         lbl.font = contactNameFont
         lbl.textAlignment = isRTL ? .right : .left
-        lbl.textColor = .black
+        lbl.textColor = .label
         return lbl
     }()
     
     private lazy var contactNumLbl:UILabel = {
         let lbl = UILabel()
         lbl.font = contactNumFont
-        lbl.textColor = .black.withAlphaComponent(0.68)
+        lbl.textColor = .label.withAlphaComponent(0.68)
         return lbl
     }()
     
@@ -51,7 +55,7 @@ class ContactCell: UITableViewCell {
         let view = UIView()
         view.layer.cornerRadius = 26
         view.clipsToBounds = true
-        view.backgroundColor = .black.withAlphaComponent(0.06)
+        view.backgroundColor = .label.withAlphaComponent(0.06)
         return view
     }()
     
@@ -59,7 +63,7 @@ class ContactCell: UITableViewCell {
     private lazy var signetureLbl:UILabel = {
         let lbl = UILabel()
         lbl.font = contactNameFont
-        lbl.textColor = .black
+        lbl.textColor = .label
         return lbl
     }()
     

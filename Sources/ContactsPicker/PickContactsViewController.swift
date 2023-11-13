@@ -22,13 +22,14 @@ public enum ContactCountry{
 
 
 public struct PickerTheme{
-    public let doneBtnFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .bold)
-    public let titleFont:UIFont = UIFont.systemFont(ofSize: 26, weight: .bold)
-    public let countFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    public let subTitleFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-    public let searchFont:UIFont = UIFont.systemFont(ofSize: 14, weight: .regular)
-    public let sectionFont:UIFont = UIFont.systemFont(ofSize: 13, weight: .bold)
-    public let tintColor:UIColor = .orange
+    public init(){}
+    public var doneBtnFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .bold)
+    public var titleFont:UIFont = UIFont.systemFont(ofSize: 26, weight: .bold)
+    public var countFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    public var subTitleFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+    public var searchFont:UIFont = UIFont.systemFont(ofSize: 14, weight: .regular)
+    public var sectionFont:UIFont = UIFont.systemFont(ofSize: 13, weight: .bold)
+    public var tintColor:UIColor = .orange
 }
 
 @available(iOS 13.0, *)
@@ -80,7 +81,7 @@ public class PickContactsViewController: UIViewController {
     
     private lazy var titleLbl: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
+        lbl.textColor = .label
         lbl.font = theme.titleFont
         if isRTL {
             lbl.textAlignment = .right
@@ -93,7 +94,7 @@ public class PickContactsViewController: UIViewController {
     
     private lazy var subTitleLbl: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black.withAlphaComponent(0.68)
+        lbl.textColor = .label.withAlphaComponent(0.68)
         lbl.font = theme.subTitleFont
         if isRTL {
             lbl.textAlignment = .right
@@ -107,7 +108,7 @@ public class PickContactsViewController: UIViewController {
     private lazy var countLbl: UILabel = {
         let lbl = UILabel()
         lbl.font = theme.countFont
-        lbl.textColor = .black.withAlphaComponent(0.46)
+        lbl.textColor = .label.withAlphaComponent(0.46)
         return lbl
     }()
     
@@ -116,6 +117,7 @@ public class PickContactsViewController: UIViewController {
         search.searchBarStyle = .minimal
         search.searchTextField.font = theme.searchFont
         search.placeholder = isRTL ? "بحث" : "Search"
+        search.searchTextField.textColor = .label
         return search
     }()
     
@@ -148,7 +150,7 @@ public class PickContactsViewController: UIViewController {
     private var contactsHandler = ContactsPickerHandler()
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         self.isModalInPresentation = true
         self.titleLbl.text = pageTitle
         self.subTitleLbl.text = pageDescription
@@ -363,11 +365,11 @@ extension PickContactsViewController:UITableViewDelegate , UITableViewDataSource
 
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         let key = filteredContacts[section].section
         let title: UILabel = UILabel()
         title.font = theme.sectionFont
-        title.textColor = .black.withAlphaComponent(0.45)
+        title.textColor = .label.withAlphaComponent(0.45)
         title.text = key
         title.textAlignment = isRTL ? .right : .left
         view.addSubview(title)

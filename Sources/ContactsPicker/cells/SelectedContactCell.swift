@@ -45,7 +45,7 @@ class SelectedContactCell: UICollectionViewCell {
         let view = UIView()
         view.layer.cornerRadius = 26
         view.clipsToBounds = true
-        view.backgroundColor = .black.withAlphaComponent(0.06)
+        view.backgroundColor = .label.withAlphaComponent(0.06)
         return view
     }()
     var contactNameFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -53,7 +53,7 @@ class SelectedContactCell: UICollectionViewCell {
     private lazy var signetureLbl:UILabel = {
         let lbl = UILabel()
         lbl.font = signetureFont
-        lbl.textColor = .black
+        lbl.textColor = .label
         return lbl
     }()
     
