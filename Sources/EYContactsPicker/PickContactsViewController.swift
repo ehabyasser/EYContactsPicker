@@ -166,6 +166,7 @@ public class PickContactsViewController: UIViewController {
         contactsTV.delegate = self
         contactsTV.dataSource = self
         searchBar.delegate = self
+        searchBar.searchTextField.tintColor = theme.tintColor
         searchBar.searchTextField.doneAccessory = true
         if isRTL {
             searchBar.semanticContentAttribute = .forceRightToLeft
@@ -271,15 +272,15 @@ public class PickContactsViewController: UIViewController {
         }
         
         searchBar.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(36)
-            make.trailing.equalToSuperview().offset(-36)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
             make.top.equalTo(subTitleLbl.snp.bottom).offset(16)
         }
         
         stack.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(searchBar.snp.bottom).offset(16)
+            make.top.equalTo(searchBar.snp.bottom).offset(8)
         }
         
         selectedContactsCV.snp.makeConstraints { make in

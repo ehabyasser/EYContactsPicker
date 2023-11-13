@@ -1,7 +1,7 @@
 import XCTest
-@testable import ContactsPicker
+@testable import EYContactsPicker
 
-final class ContactsPickerTests: XCTestCase {
+final class EYContactsPickerTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
